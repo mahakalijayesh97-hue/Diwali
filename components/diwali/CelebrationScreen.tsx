@@ -130,16 +130,16 @@ export function CelebrationScreen({
       <FireworksCanvas ref={fireworksRef} sound={sound} />
 
       {/* 3. Header Auspicious Greeting */}
-      <div className="pointer-events-none absolute inset-x-0 top-14 sm:top-18 z-10 px-4">
+      <div className="pointer-events-none absolute inset-x-0 top-12 xs:top-14 sm:top-18 z-10 px-2 sm:px-4">
         <DiwaliGreeting />
       </div>
 
       {/* 4. Top Navigation Bar */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-20 flex items-center justify-between gap-2 p-3 sm:p-5">
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-20 flex items-center justify-between gap-2 p-2.5 xs:p-3 sm:p-5">
         <button
           type="button"
           onClick={() => setClosing(true)}
-          className="glass-button pointer-events-auto !py-1.5 !px-3 text-xs sm:text-sm hover:border-diwali-gold-400 active:scale-95"
+          className="glass-button pointer-events-auto !py-1.5 !px-2.5 sm:!px-3 text-xs sm:text-sm hover:border-diwali-gold-400 active:scale-95"
         >
           <ArrowLeft className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
           <span className="hidden sm:inline">Back to Home</span>
@@ -155,7 +155,7 @@ export function CelebrationScreen({
       </div>
 
       {/* 5. Bottom Interactive Launchpad (Compact & Properly Set) */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-3 sm:bottom-5 z-20 px-3 sm:px-4">
+      <div className="pointer-events-none absolute inset-x-0 bottom-2.5 sm:bottom-5 z-20 px-2 xs:px-3 sm:px-4">
         {isDockExpanded ? (
           <div className="glass-panel pointer-events-auto mx-auto flex max-w-xl flex-col gap-2 rounded-2xl sm:rounded-3xl border border-diwali-gold-400/30 bg-black/55 p-2.5 sm:p-3.5 shadow-[0_15px_45px_rgba(0,0,0,0.85)] backdrop-blur-2xl transition-all duration-300">
             {/* Dock Header with Minimize Toggle */}

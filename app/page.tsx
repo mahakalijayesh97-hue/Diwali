@@ -43,7 +43,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-diwali-night font-body text-white">
+    <main className="min-h-screen bg-diwali-night font-body text-white overflow-x-hidden min-w-0 w-full">
       <DiwaliNavbar
         onCelebrate={startCelebration}
         soundOn={soundOn}

@@ -111,7 +111,7 @@ export function WishesSection() {
   };
 
   return (
-    <section id="wishes" className="relative bg-diwali-plum-900/40 px-5 py-24 sm:px-8 lg:px-12 scroll-mt-20">
+    <section id="wishes" className="relative bg-diwali-plum-900/40 px-3.5 xs:px-5 sm:px-8 lg:px-12 py-16 sm:py-24 scroll-mt-20 overflow-hidden">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow="Diwali wishes"
@@ -119,8 +119,8 @@ export function WishesSection() {
           description="Leave a message for family and friends. Every wish is shared with everyone who visits this celebration."
         />
 
-        <div className="mt-16 grid gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)]">
-          <form onSubmit={handleSubmit} className="glass-panel flex flex-col gap-5 p-6 sm:p-8">
+        <div className="mt-10 sm:mt-16 grid gap-6 sm:gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)]">
+          <form onSubmit={handleSubmit} className="glass-panel flex flex-col gap-4 sm:gap-5 p-4 xs:p-6 sm:p-8">
             <div className="flex flex-col gap-2">
               <label htmlFor="wish-name" className="text-sm font-medium text-white/85">
                 Your name
@@ -131,7 +131,7 @@ export function WishesSection() {
                 maxLength={NAME_MAX_LENGTH}
                 onChange={(event) => setName(event.target.value)}
                 placeholder="Priya"
-                className="h-12 rounded-xl border-white/15 bg-white/5 text-white placeholder:text-white/40 focus-visible:ring-diwali-gold-400"
+                className="h-11 sm:h-12 rounded-xl border-white/15 bg-white/5 text-base sm:text-sm text-white placeholder:text-white/40 focus-visible:ring-diwali-gold-400"
               />
             </div>
 
@@ -150,8 +150,8 @@ export function WishesSection() {
                 maxLength={MESSAGE_MAX_LENGTH}
                 onChange={(event) => setMessage(event.target.value)}
                 placeholder="May your home glow with happiness this Diwali."
-                rows={5}
-                className="rounded-xl border-white/15 bg-white/5 text-white placeholder:text-white/40 focus-visible:ring-diwali-gold-400"
+                rows={4}
+                className="rounded-xl border-white/15 bg-white/5 text-base sm:text-sm text-white placeholder:text-white/40 focus-visible:ring-diwali-gold-400"
               />
             </div>
 
@@ -164,12 +164,12 @@ export function WishesSection() {
               </p>
             )}
 
-            <div className="flex items-center justify-between gap-4">
+            <div className="flex flex-col xs:flex-row items-center justify-between gap-3 pt-1">
               {posted && <span className="anim-fade-in text-sm text-diwali-gold-300">Your wish has been shared.</span>}
               <button
                 type="submit"
                 disabled={submitting}
-                className="ml-auto inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-diwali-gold-300 via-diwali-gold-400 to-diwali-saffron px-6 py-3 text-sm font-semibold text-diwali-plum-950 shadow-[0_8px_30px_-6px_rgba(245,201,106,0.6)] transition duration-300 hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white disabled:cursor-not-allowed disabled:opacity-60"
+                className="w-full xs:w-auto xs:ml-auto inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-diwali-gold-300 via-diwali-gold-400 to-diwali-saffron px-6 py-3 text-sm font-semibold text-diwali-plum-950 shadow-[0_8px_30px_-6px_rgba(245,201,106,0.6)] transition duration-300 hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {submitting ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
                 {submitting ? 'Sending...' : 'Send Wish'}

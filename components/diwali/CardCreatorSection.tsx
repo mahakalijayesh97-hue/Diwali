@@ -871,7 +871,7 @@ export function CardCreatorSection() {
   };
 
   return (
-    <section id="card-creator" className="relative py-24 px-5 sm:px-8 scroll-mt-20">
+    <section id="card-creator" className="relative py-16 sm:py-24 px-3.5 xs:px-5 sm:px-8 scroll-mt-20 overflow-hidden">
       {/* Background glow highlights */}
       <div
         aria-hidden
@@ -885,15 +885,15 @@ export function CardCreatorSection() {
           description="Personalize your festive Diwali & Happy New Year greeting with your photo, name, and warm wishes. Download in high resolution to share with loved ones on WhatsApp, Instagram, or print."
         />
 
-        <div className="mt-14 grid grid-cols-1 items-start gap-10 lg:grid-cols-12">
+        <div className="mt-10 sm:mt-14 grid grid-cols-1 items-start gap-8 lg:gap-10 lg:grid-cols-12">
           {/* LEFT: Customization Form */}
-          <div className="glass-panel p-6 sm:p-8 lg:col-span-7">
-            <div className="flex items-center justify-between border-b border-white/10 pb-5">
-              <div className="flex items-center gap-2.5">
-                <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-diwali-gold-400/20 text-diwali-gold-300">
-                  <Sparkles className="h-5 w-5" />
+          <div className="glass-panel p-4 xs:p-6 sm:p-8 lg:col-span-7">
+            <div className="flex items-center justify-between border-b border-white/10 pb-4 sm:pb-5">
+              <div className="flex items-center gap-2 sm:gap-2.5">
+                <span className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg bg-diwali-gold-400/20 text-diwali-gold-300 shrink-0">
+                  <Sparkles className="h-4 w-4 sm:h-5 sm:w-5" />
                 </span>
-                <h3 className="font-display text-2xl font-semibold text-white">
+                <h3 className="font-display text-xl sm:text-2xl font-semibold text-white">
                   Customize Your Card
                 </h3>
               </div>
@@ -908,14 +908,14 @@ export function CardCreatorSection() {
               </button>
             </div>
 
-            <div className="mt-6 space-y-6">
+            <div className="mt-5 sm:mt-6 space-y-5 sm:space-y-6">
               {/* Occasion / Card Type Selector */}
               <div>
                 <label className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-diwali-gold-300">
                   <Sparkles className="h-3.5 w-3.5" />
                   Select Card Type / Occasion
                 </label>
-                <div className="mt-2.5 grid grid-cols-3 gap-2">
+                <div className="mt-2.5 grid grid-cols-1 xs:grid-cols-3 sm:grid-cols-3 gap-2">
                   {CARD_OCCASIONS.map((occ) => {
                     const isSelected = occ.id === occasionId;
                     return (
@@ -923,14 +923,14 @@ export function CardCreatorSection() {
                         key={occ.id}
                         type="button"
                         onClick={() => handleOccasionChange(occ.id)}
-                        className={`flex flex-col sm:flex-row items-center justify-center gap-1.5 rounded-xl border p-2.5 text-center text-xs font-semibold transition ${
+                        className={`flex items-center xs:flex-col sm:flex-row justify-center gap-2 xs:gap-1 sm:gap-1.5 rounded-xl border p-2.5 text-center text-xs font-semibold transition ${
                           isSelected
                             ? 'border-diwali-gold-400 bg-diwali-gold-400/20 text-diwali-gold-200 shadow-[0_0_15px_rgba(245,201,106,0.3)]'
                             : 'border-white/10 bg-white/5 text-white/70 hover:border-white/25 hover:bg-white/10 hover:text-white'
                         }`}
                       >
                         <span className="text-base">{occ.icon}</span>
-                        <span>{occ.name}</span>
+                        <span className="truncate">{occ.name}</span>
                       </button>
                     );
                   })}
@@ -952,7 +952,7 @@ export function CardCreatorSection() {
                   maxLength={50}
                   onChange={(e) => setSenderName(e.target.value)}
                   placeholder="e.g. Rahul & Neha Sharma"
-                  className="mt-2 w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/40 backdrop-blur-sm transition focus:border-diwali-gold-400 focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-diwali-gold-400"
+                  className="mt-2 w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-base sm:text-sm text-white placeholder-white/40 backdrop-blur-sm transition focus:border-diwali-gold-400 focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-diwali-gold-400"
                 />
               </div>
 
@@ -971,7 +971,7 @@ export function CardCreatorSection() {
                   maxLength={50}
                   onChange={(e) => setRecipientName(e.target.value)}
                   placeholder="e.g. Dearest Friends & Family"
-                  className="mt-2 w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/40 backdrop-blur-sm transition focus:border-diwali-gold-400 focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-diwali-gold-400"
+                  className="mt-2 w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-base sm:text-sm text-white placeholder-white/40 backdrop-blur-sm transition focus:border-diwali-gold-400 focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-diwali-gold-400"
                 />
               </div>
 
@@ -982,12 +982,12 @@ export function CardCreatorSection() {
                 </label>
                 <div className="mt-2">
                   {userImage ? (
-                    <div className="flex items-center gap-4 rounded-xl border border-diwali-gold-400/40 bg-white/5 p-3 backdrop-blur-sm">
+                    <div className="flex flex-col xs:flex-row items-start xs:items-center gap-3 sm:gap-4 rounded-xl border border-diwali-gold-400/40 bg-white/5 p-3 backdrop-blur-sm">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={userImage}
                         alt="Uploaded preview"
-                        className="h-16 w-16 rounded-full border-2 border-diwali-gold-400 object-cover shadow-md"
+                        className="h-14 w-14 sm:h-16 sm:w-16 rounded-full border-2 border-diwali-gold-400 object-cover shadow-md shrink-0"
                       />
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium text-white truncate">Photo selected</p>
@@ -995,7 +995,7 @@ export function CardCreatorSection() {
                           Framed in royal gold filigree on your card
                         </p>
                       </div>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 self-end xs:self-auto shrink-0">
                         <button
                           type="button"
                           onClick={() => fileInputRef.current?.click()}
@@ -1016,12 +1016,12 @@ export function CardCreatorSection() {
                   ) : (
                     <div
                       onClick={() => fileInputRef.current?.click()}
-                      className="group flex cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-white/20 bg-white/[0.03] p-6 text-center transition hover:border-diwali-gold-400/70 hover:bg-white/[0.07]"
+                      className="group flex cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-white/20 bg-white/[0.03] p-5 sm:p-6 text-center transition hover:border-diwali-gold-400/70 hover:bg-white/[0.07]"
                     >
-                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-diwali-gold-400/10 text-diwali-gold-300 transition group-hover:scale-110">
-                        <Upload className="h-6 w-6" />
+                      <div className="flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-diwali-gold-400/10 text-diwali-gold-300 transition group-hover:scale-110">
+                        <Upload className="h-5 w-5 sm:h-6 sm:w-6" />
                       </div>
-                      <p className="mt-3 text-sm font-medium text-white">
+                      <p className="mt-2.5 sm:mt-3 text-sm font-medium text-white">
                         Click to upload your portrait photo
                       </p>
                       <p className="mt-1 text-xs text-white/50">
@@ -1045,7 +1045,7 @@ export function CardCreatorSection() {
                   <Palette className="h-3.5 w-3.5" />
                   Select Card Theme
                 </label>
-                <div className="mt-2.5 grid grid-cols-2 gap-2.5 sm:grid-cols-5">
+                <div className="mt-2.5 grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-5 gap-2 sm:gap-2.5">
                   {CARD_THEMES.map((theme) => {
                     const isSelected = theme.id === themeId;
                     return (
@@ -1053,20 +1053,20 @@ export function CardCreatorSection() {
                         key={theme.id}
                         type="button"
                         onClick={() => setThemeId(theme.id)}
-                        className={`group relative flex flex-col items-center gap-2 rounded-xl border p-3 text-left transition ${
+                        className={`group relative flex flex-col items-center gap-2 rounded-xl border p-2.5 sm:p-3 text-left transition ${
                           isSelected
                             ? 'border-diwali-gold-400 bg-white/15 shadow-[0_0_20px_rgba(245,201,106,0.3)]'
                             : 'border-white/10 bg-white/5 hover:border-white/25 hover:bg-white/10'
                         }`}
                       >
                         <div
-                          className="h-7 w-full rounded-md shadow-inner"
+                          className="h-6 sm:h-7 w-full rounded-md shadow-inner"
                           style={{
                             background: `linear-gradient(135deg, ${theme.bgGradient[0]}, ${theme.bgGradient[1]})`,
                             border: `1px solid ${theme.borderColor}`,
                           }}
                         />
-                        <span className="text-[11px] font-medium text-white group-hover:text-diwali-gold-300 text-center">
+                        <span className="text-[11px] font-medium text-white group-hover:text-diwali-gold-300 text-center truncate w-full">
                           {theme.name}
                         </span>
                         {isSelected && (
@@ -1098,7 +1098,7 @@ export function CardCreatorSection() {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder={`Write your custom heartfelt ${currentOccasion.name} message...`}
-                  className="mt-2 w-full rounded-xl border border-white/15 bg-white/5 p-3 text-sm text-white placeholder-white/40 backdrop-blur-sm transition focus:border-diwali-gold-400 focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-diwali-gold-400"
+                  className="mt-2 w-full rounded-xl border border-white/15 bg-white/5 p-3 text-base sm:text-sm text-white placeholder-white/40 backdrop-blur-sm transition focus:border-diwali-gold-400 focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-diwali-gold-400"
                 />
 
                 {/* Quick preset suggestions */}
@@ -1126,30 +1126,30 @@ export function CardCreatorSection() {
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-2 flex flex-col sm:flex-row gap-3">
+              <div className="pt-2 flex flex-col sm:flex-row gap-2.5 sm:gap-3">
                 <button
                   type="button"
                   onClick={handleDownloadCard}
                   disabled={isGenerating}
-                  className="group relative flex-1 inline-flex items-center justify-center gap-2.5 overflow-hidden rounded-full border border-diwali-gold-300/40 bg-gradient-to-r from-diwali-gold-400 via-diwali-saffron to-diwali-gold-500 py-3.5 px-6 font-semibold text-diwali-night shadow-[0_0_25px_rgba(245,201,106,0.5)] transition duration-300 hover:scale-[1.02] hover:shadow-[0_0_35px_rgba(245,201,106,0.7)] active:scale-[0.98] disabled:opacity-50"
+                  className="group relative flex-1 inline-flex items-center justify-center gap-2.5 overflow-hidden rounded-full border border-diwali-gold-300/40 bg-gradient-to-r from-diwali-gold-400 via-diwali-saffron to-diwali-gold-500 py-3.5 px-6 font-semibold text-diwali-night shadow-[0_0_25px_rgba(245,201,106,0.5)] transition duration-300 hover:scale-[1.02] hover:shadow-[0_0_35px_rgba(245,201,106,0.7)] active:scale-[0.98] disabled:opacity-50 text-sm sm:text-base"
                 >
-                  <Download className="h-5 w-5" />
+                  <Download className="h-4 w-4 sm:h-5 sm:w-5 shrink-0" />
                   <span>{isGenerating ? 'Rendering HD Card...' : 'Download HD Card (PNG)'}</span>
                 </button>
 
                 <button
                   type="button"
                   onClick={handleShareCard}
-                  className="glass-button !py-3.5 !px-6"
+                  className="glass-button !py-3.5 !px-6 text-sm sm:text-base justify-center"
                 >
                   {copied ? (
                     <>
-                      <Check className="h-4 w-4 text-emerald-400" />
+                      <Check className="h-4 w-4 text-emerald-400 shrink-0" />
                       <span>Copied!</span>
                     </>
                   ) : (
                     <>
-                      <Share2 className="h-4 w-4 text-diwali-gold-300" />
+                      <Share2 className="h-4 w-4 text-diwali-gold-300 shrink-0" />
                       <span>Share</span>
                     </>
                   )}
@@ -1159,17 +1159,17 @@ export function CardCreatorSection() {
           </div>
 
           {/* RIGHT: Live Interactive Preview */}
-          <div className="lg:col-span-5 flex flex-col items-center">
+          <div className="lg:col-span-5 flex flex-col items-center w-full">
             <div className="w-full text-center mb-3 flex items-center justify-between px-2">
               <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-diwali-gold-300">
-                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
                 Live Card Preview
               </span>
-              <span className="text-xs text-white/50">1080 × 1350 High-Res</span>
+              <span className="text-[11px] sm:text-xs text-white/50">1080 × 1350 High-Res</span>
             </div>
 
             {/* Frame container for canvas */}
-            <div className="relative w-full max-w-[430px] rounded-2xl border border-diwali-gold-400/40 p-2.5 bg-gradient-to-b from-white/15 via-white/5 to-black/40 shadow-[0_25px_70px_-15px_rgba(0,0,0,0.9)] backdrop-blur-2xl transition hover:border-diwali-gold-400/70">
+            <div className="relative w-full max-w-[340px] xs:max-w-[380px] sm:max-w-[430px] rounded-2xl border border-diwali-gold-400/40 p-2 sm:p-2.5 bg-gradient-to-b from-white/15 via-white/5 to-black/40 shadow-[0_25px_70px_-15px_rgba(0,0,0,0.9)] backdrop-blur-2xl transition hover:border-diwali-gold-400/70">
               <canvas
                 ref={previewCanvasRef}
                 className="w-full h-auto rounded-xl shadow-2xl block border border-white/10"
@@ -1177,11 +1177,11 @@ export function CardCreatorSection() {
               />
 
               {/* Bottom Quick-Action Bar */}
-              <div className="mt-3.5 flex items-center justify-between gap-2 px-1">
-                <span className="text-xs text-diwali-gold-300/90 font-medium truncate">
+              <div className="mt-3 flex flex-col xs:flex-row items-start xs:items-center justify-between gap-2 px-1">
+                <span className="text-[11px] sm:text-xs text-diwali-gold-300/90 font-medium truncate max-w-full">
                   {currentOccasion.icon} {currentOccasion.name} • {currentTheme.name}
                 </span>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5 sm:gap-2 w-full xs:w-auto justify-end">
                   <button
                     type="button"
                     onClick={handleCopyTextOnly}

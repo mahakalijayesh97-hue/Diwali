@@ -62,7 +62,7 @@ const GALLERY_ITEMS = [
 
 export function GallerySection() {
   return (
-    <section id="gallery" className="relative px-5 py-24 sm:px-8 lg:px-12 scroll-mt-20">
+    <section id="gallery" className="relative px-3.5 xs:px-5 sm:px-8 lg:px-12 py-16 sm:py-24 scroll-mt-20 overflow-hidden">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow="Gallery"
@@ -70,28 +70,30 @@ export function GallerySection() {
           description="Glowing diyas, painted rangoli and nights lit up by fireworks."
         />
 
-        <div className="mt-16 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
+        <div className="mt-10 sm:mt-16 grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-5">
           {GALLERY_ITEMS.map((item, index) => (
             <Reveal key={item.src} delay={(index % 3) * 0.1}>
-              <figure className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/10 bg-diwali-plum-900 sm:aspect-[4/3]">
+              <figure className="group relative aspect-[4/5] xs:aspect-[4/5] sm:aspect-[4/3] overflow-hidden rounded-2xl border border-white/10 bg-diwali-plum-900">
                 <img
                   src={item.src}
                   alt={item.alt}
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 />
-                <figcaption className="absolute inset-x-0 bottom-0 translate-y-2 bg-gradient-to-t from-diwali-plum-950/90 via-diwali-plum-950/40 to-transparent p-4 opacity-0 transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 sm:p-5">
-                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-diwali-gold-300">
+                <figcaption className="absolute inset-x-0 bottom-0 translate-y-0 sm:translate-y-2 bg-gradient-to-t from-diwali-plum-950/95 via-diwali-plum-950/60 to-transparent p-3.5 sm:p-5 opacity-90 sm:opacity-0 transition duration-500 sm:group-hover:translate-y-0 sm:group-hover:opacity-100">
+                  <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-diwali-gold-300">
                     {item.category}
                   </span>
-                  <p className="mt-1 font-display text-lg font-semibold text-white">{item.title}</p>
+                  <p className="mt-0.5 sm:mt-1 font-display text-base sm:text-lg font-semibold text-white truncate">
+                    {item.title}
+                  </p>
                 </figcaption>
               </figure>
             </Reveal>
           ))}
         </div>
 
-        <p className="mt-8 text-center text-xs text-white/45">Photos from Pexels contributors.</p>
+        <p className="mt-6 sm:mt-8 text-center text-xs text-white/45">Photos from Pexels contributors.</p>
       </div>
     </section>
   );

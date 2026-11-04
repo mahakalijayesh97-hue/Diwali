@@ -16,6 +16,12 @@ const body = Manrope({
 });
 
 export const metadata: Metadata = {
+  themeColor: '#0a0518',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+  },
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
   ),
@@ -43,7 +49,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} scroll-smooth`}>
-      <body className="bg-diwali-night font-body text-white antialiased">
+      <body className="bg-diwali-night font-body text-white antialiased overflow-x-hidden min-w-0 w-full selection:bg-diwali-gold-400 selection:text-diwali-night">
         {children}
       </body>
     </html>

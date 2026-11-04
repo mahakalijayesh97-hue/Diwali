@@ -53,16 +53,16 @@ export function DiwaliNavbar({ onCelebrate, soundOn, onToggleSound }: DiwaliNavb
           : 'bg-transparent py-5'
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 sm:px-8">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-3.5 xs:px-5 sm:px-8">
         <a
           href="#home"
           onClick={() => setActiveSection('#home')}
-          className="flex items-center gap-3"
+          className="flex items-center gap-2.5 sm:gap-3"
         >
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-diwali-gold-300 to-diwali-saffron shadow-[0_0_20px_rgba(245,201,106,0.45)]">
-            <Flame className="h-5 w-5 text-diwali-plum-950" />
+          <span className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-gradient-to-br from-diwali-gold-300 to-diwali-saffron shadow-[0_0_20px_rgba(245,201,106,0.45)] shrink-0">
+            <Flame className="h-4 w-4 sm:h-5 sm:w-5 text-diwali-plum-950" />
           </span>
-          <span className="font-display text-xl font-semibold tracking-wide text-white">
+          <span className="font-display text-lg sm:text-xl font-semibold tracking-wide text-white">
             Diwali <span className="gold-text">2026</span>
           </span>
         </a>
@@ -95,6 +95,7 @@ export function DiwaliNavbar({ onCelebrate, soundOn, onToggleSound }: DiwaliNavb
           })}
         </ul>
 
+        {/* Desktop Controls */}
         <div className="hidden items-center gap-3 md:flex">
           {onToggleSound && (
             <button
@@ -122,15 +123,33 @@ export function DiwaliNavbar({ onCelebrate, soundOn, onToggleSound }: DiwaliNavb
           </button>
         </div>
 
-        <button
-          type="button"
-          onClick={() => setMenuOpen((open) => !open)}
-          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={menuOpen}
-          className="glass-button !p-2.5 md:hidden"
-        >
-          {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        {/* Mobile Header Actions */}
+        <div className="flex items-center gap-2 md:hidden">
+          {onToggleSound && (
+            <button
+              type="button"
+              onClick={onToggleSound}
+              aria-label={soundOn ? 'Mute festive music' : 'Play festive music'}
+              className="glass-button !p-2 text-xs"
+              title={soundOn ? 'Mute festive music' : 'Play festive music'}
+            >
+              {soundOn ? (
+                <Volume2 className="h-4 w-4 text-diwali-gold-300 animate-pulse" />
+              ) : (
+                <VolumeX className="h-4 w-4 text-white/60" />
+              )}
+            </button>
+          )}
+          <button
+            type="button"
+            onClick={() => setMenuOpen((open) => !open)}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
+            className="glass-button !p-2"
+          >
+            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </nav>
 
       {menuOpen && (
