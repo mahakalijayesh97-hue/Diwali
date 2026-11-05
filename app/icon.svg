@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0518" />
+      <stop offset="50%" stop-color="#1e0b38" />
+      <stop offset="100%" stop-color="#080314" />
+    </linearGradient>
+
+    <!-- Outer Gold Border Gradient -->
+    <linearGradient id="goldBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe699" />
+      <stop offset="35%" stop-color="#f5c96a" />
+      <stop offset="70%" stop-color="#d49228" />
+      <stop offset="100%" stop-color="#ffe699" />
+    </linearGradient>
+
+    <!-- Flame Aura Radial Gradient -->
+    <radialGradient id="flameHalo" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#ffea9f" stop-opacity="0.95" />
+      <stop offset="30%" stop-color="#ff8c00" stop-opacity="0.65" />
+      <stop offset="65%" stop-color="#ff2a6d" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#ff0055" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Sacred Outer Flame Gradient -->
+    <linearGradient id="flameOuter" x1="50%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" stop-color="#ff1a00" />
+      <stop offset="40%" stop-color="#ff7b00" />
+      <stop offset="80%" stop-color="#ffc83b" />
+      <stop offset="100%" stop-color="#ffffff" />
+    </linearGradient>
+
+    <!-- Inner Core Flame Gradient -->
+    <linearGradient id="flameInner" x1="50%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" stop-color="#ff9900" />
+      <stop offset="45%" stop-color="#fff080" />
+      <stop offset="100%" stop-color="#ffffff" />
+    </linearGradient>
+
+    <!-- Brass Diya Bowl Gradient -->
+    <linearGradient id="diyaBowl" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff0b3" />
+      <stop offset="25%" stop-color="#ffd15c" />
+      <stop offset="60%" stop-color="#e69519" />
+      <stop offset="100%" stop-color="#662900" />
+    </linearGradient>
+
+    <!-- Diya Rim Highlight -->
+    <linearGradient id="rimGrad" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#ffd966" />
+      <stop offset="50%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#ffd966" />
+    </linearGradient>
+  </defs>
+
+  <!-- Squircle / Rounded Badge Background -->
+  <rect x="16" y="16" width="480" height="480" rx="116" ry="116" fill="url(#bgGrad)" stroke="url(#goldBorder)" stroke-width="10" />
+
+  <!-- Inner Subtle Accent Border -->
+  <rect x="36" y="36" width="440" height="440" rx="96" ry="96" fill="none" stroke="#ffe08a" stroke-width="2.5" stroke-opacity="0.35" />
+
+  <!-- Sparkling Stars in the Night Sky -->
+  <g fill="#ffe699">
+    <!-- Top Left Star -->
+    <path d="M 85,95 Q 85,115 65,115 Q 85,115 85,135 Q 85,115 105,115 Q 85,115 85,95 Z" opacity="0.85" />
+    <!-- Top Right Star -->
+    <path d="M 425,95 Q 425,115 405,115 Q 425,115 425,135 Q 425,115 445,115 Q 425,115 425,95 Z" opacity="0.85" />
+    <!-- Small accent sparkles -->
+    <circle cx="145" cy="85" r="3.5" opacity="0.6" />
+    <circle cx="365" cy="85" r="3.5" opacity="0.6" />
+    <circle cx="75" cy="225" r="3" opacity="0.45" />
+    <circle cx="435" cy="225" r="3" opacity="0.45" />
+  </g>
+
+  <!-- Radiant Light Halo Behind the Sacred Flame -->
+  <circle cx="256" cy="210" r="160" fill="url(#flameHalo)" />
+
+  <!-- Sacred Multi-Layer Diya Flame -->
+  <!-- Outer Flame Body -->
+  <path d="M 256,70 C 278,135 328,190 328,245 C 328,295 295,325 256,325 C 217,325 184,295 184,245 C 184,190 234,135 256,70 Z" fill="url(#flameOuter)" />
+
+  <!-- Mid Flame Glow -->
+  <path d="M 256,110 C 272,160 306,205 306,248 C 306,285 282,310 256,310 C 230,310 206,285 206,248 C 206,205 240,160 256,110 Z" fill="url(#flameInner)" />
+
+  <!-- Sacred Inner Teardrop White Core -->
+  <path d="M 256,155 C 265,190 282,225 282,252 C 282,275 270,292 256,292 C 242,292 230,275 230,252 C 230,225 247,190 256,155 Z" fill="#ffffff" opacity="0.95" />
+
+  <!-- Sculpted Brass Diya Bowl -->
+  <!-- Diya Body with Sculpted Rim & Curled Edge -->
+  <path d="M 95,295 C 120,280 200,315 256,315 C 312,315 392,280 417,295 C 430,305 420,320 395,350 C 355,400 295,420 256,420 C 217,420 157,400 117,350 C 92,320 82,305 95,295 Z" fill="url(#diyaBowl)" stroke="#fff2b3" stroke-width="4.5" />
+
+  <!-- Diya Top Lip / Rim Golden Contour -->
+  <path d="M 100,298 Q 256,328 412,298" fill="none" stroke="url(#rimGrad)" stroke-width="6" stroke-linecap="round" />
+
+  <!-- Engraved Geometric Filigree on Diya Body -->
+  <path d="M 145,340 Q 256,375 367,340" fill="none" stroke="#662900" stroke-width="3" stroke-opacity="0.6" stroke-linecap="round" />
+
+  <!-- Traditional Golden Beads / Dots Along the Diya Contour -->
+  <g fill="#ffe699">
+    <circle cx="165" cy="358" r="4" />
+    <circle cx="195" cy="370" r="4.5" />
+    <circle cx="225" cy="378" r="5" />
+    <circle cx="256" cy="382" r="5.5" />
+    <circle cx="287" cy="378" r="5" />
+    <circle cx="317" cy="370" r="4.5" />
+    <circle cx="347" cy="358" r="4" />
+  </g>
+
+  <!-- Diya Base Stand Pedestal -->
+  <path d="M 220,418 C 220,432 236,442 256,442 C 276,442 292,432 292,418 Z" fill="#b36b00" stroke="#ffd15c" stroke-width="3" />
+</svg>
