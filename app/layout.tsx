@@ -49,6 +49,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} scroll-smooth`}>
+      <head>
+        <link rel="preconnect" href="https://images.pexels.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://images.pexels.com" />
+      </head>
       <body className="bg-diwali-night font-body text-white antialiased overflow-x-hidden min-w-0 w-full selection:bg-diwali-gold-400 selection:text-diwali-night">
         {children}
       </body>

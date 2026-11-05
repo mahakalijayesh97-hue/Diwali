@@ -14,9 +14,7 @@ export class SoundEngine {
 
   constructor(audioSrc?: string) {
     if (audioSrc) this.audioSrc = audioSrc;
-    if (typeof window !== 'undefined') {
-      this.ensureMusic();
-    }
+    // Do not preload heavy 3.7MB audio on initial page load
   }
 
   private ensureMusic(): HTMLAudioElement | null {
@@ -26,7 +24,7 @@ export class SoundEngine {
         const audio = new Audio(this.audioSrc);
         audio.loop = true;
         audio.volume = 0.45;
-        audio.preload = 'auto';
+        audio.preload = 'none'; // Never hog initial network bandwidth
         this.bgAudio = audio;
       } catch {
         this.bgAudio = null;
@@ -41,13 +39,13 @@ export class SoundEngine {
       const { ctx, out } = this.graph;
       out.gain.setTargetAtTime(enabled ? 0.7 : 0, ctx.currentTime, 0.05);
     }
-    const audio = this.ensureMusic();
-    if (audio) {
-      if (enabled) {
+    if (enabled) {
+      const audio = this.ensureMusic();
+      if (audio) {
         audio.play().catch(() => undefined);
-      } else {
-        audio.pause();
       }
+    } else if (this.bgAudio) {
+      this.bgAudio.pause();
     }
   }
 

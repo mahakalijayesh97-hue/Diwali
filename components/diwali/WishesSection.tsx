@@ -70,7 +70,20 @@ export function WishesSection() {
   }, []);
 
   useEffect(() => {
-    void loadWishes();
+    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      const handle = (window as Window & { requestIdleCallback: (cb: () => void) => number }).requestIdleCallback(() => {
+        void loadWishes();
+      });
+      return () => {
+        if ('cancelIdleCallback' in window) {
+          (window as Window & { cancelIdleCallback: (id: number) => void }).cancelIdleCallback(handle);
+        }
+      };
+    }
+    const timer = setTimeout(() => {
+      void loadWishes();
+    }, 400);
+    return () => clearTimeout(timer);
   }, [loadWishes]);
 
   useEffect(() => {
@@ -111,7 +124,7 @@ export function WishesSection() {
   };
 
   return (
-    <section id="wishes" className="relative bg-diwali-plum-900/40 px-3.5 xs:px-5 sm:px-8 lg:px-12 py-16 sm:py-24 scroll-mt-20 overflow-hidden">
+    <section id="wishes" className="relative bg-diwali-plum-900/40 px-3.5 xs:px-5 sm:px-8 lg:px-12 py-16 sm:py-24 scroll-mt-20 overflow-hidden content-auto">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow="Diwali wishes"

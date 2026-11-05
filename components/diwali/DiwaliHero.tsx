@@ -81,13 +81,10 @@ export function DiwaliHero({ onCelebrate }: DiwaliHeroProps) {
 
         {/* Grand Headline with Shimmering Gold Elegance */}
         <h1 className="mt-5 sm:mt-8 font-display text-5xl xs:text-6xl sm:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.08] text-center">
-          <span className="anim-fade-up block bg-gradient-to-r from-[#fff9e6] via-[#ffe08a] to-[#f5c96a] bg-clip-text text-transparent drop-shadow-[0_4px_35px_rgba(245,201,106,0.45)]">
+          <span className="block bg-gradient-to-r from-[#fff9e6] via-[#ffe08a] to-[#f5c96a] bg-clip-text text-transparent">
             Happy Diwali
           </span>
-          <span
-            className="anim-scale-in gold-shimmer-text block mt-1 drop-shadow-[0_0_35px_rgba(245,201,106,0.5)]"
-            style={{ animationDelay: '0.35s' }}
-          >
+          <span className="gold-shimmer-text block mt-1">
             2026
           </span>
         </h1>

@@ -149,8 +149,8 @@
 
 @keyframes fade-up {
   from {
-    opacity: 0;
-    transform: translateY(24px);
+    opacity: 0.9;
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -160,7 +160,7 @@
 
 @keyframes fade-down {
   from {
-    opacity: 0;
+    opacity: 0.9;
     transform: translateY(-8px);
   }
   to {
@@ -171,7 +171,7 @@
 
 @keyframes fade-in {
   from {
-    opacity: 0;
+    opacity: 0.85;
   }
   to {
     opacity: 1;
@@ -189,8 +189,8 @@
 
 @keyframes scale-in {
   from {
-    opacity: 0;
-    transform: scale(0.8);
+    opacity: 0.9;
+    transform: scale(0.96);
   }
   to {
     opacity: 1;
@@ -255,34 +255,43 @@
 }
 
 .anim-fade-up {
-  animation: fade-up 0.8s ease-out backwards;
+  animation: fade-up 0.5s ease-out backwards;
 }
 .anim-fade-down {
   animation: fade-down 0.25s ease-out backwards;
 }
 .anim-fade-in {
-  animation: fade-in 0.9s ease-in-out backwards;
+  animation: fade-in 0.5s ease-in-out backwards;
 }
 .anim-fade-out {
-  animation: fade-out 0.9s ease-in-out forwards;
+  animation: fade-out 0.5s ease-in-out forwards;
 }
 .anim-scale-in {
-  animation: scale-in 1s ease-out backwards;
+  animation: scale-in 0.6s ease-out backwards;
 }
 .anim-blur-in {
-  animation: blur-in 1.2s ease-out backwards;
+  animation: blur-in 0.8s ease-out backwards;
 }
 .anim-glow-pulse {
   animation: glow-pulse 2.8s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 .anim-breathe {
   animation: breathe 2.4s ease-in-out infinite;
 }
 .anim-particle {
   animation: particle-float 6s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 .anim-spin-slow {
   animation: spin-slow 90s linear infinite;
+  will-change: transform;
+}
+
+/* Modern Performance: skip rendering below-the-fold content until scrolled near */
+.content-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 800px;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -88,10 +88,10 @@ const DOT_COUNT = 24;
 
 export function Rangoli({ size = 380 }: RangoliProps) {
   return (
-    <div aria-hidden className="anim-spin-slow" style={{ width: size, height: size }}>
+    <div aria-hidden className="anim-spin-slow will-change-transform" style={{ width: size, height: size }}>
       <svg
         viewBox="0 0 200 200"
-        className="h-full w-full drop-shadow-[0_0_35px_rgba(255,160,50,0.45)]"
+        className="h-full w-full"
       >
         <defs>
           <radialGradient id="rangoliGlow" cx="50%" cy="50%" r="50%">
@@ -135,30 +135,30 @@ export function Rangoli({ size = 380 }: RangoliProps) {
 
         {/* Decorative Golden Starburst Rays */}
         <g fill="none" stroke="#ffe08a" strokeWidth="1.5" opacity="0.85">
-          {Array.from({ length: DOT_COUNT }, (_, i) => {
-            const angle = (i * 2 * Math.PI) / DOT_COUNT;
-            const x1 = 100 + Math.cos(angle) * 60;
-            const y1 = 100 + Math.sin(angle) * 60;
-            const x2 = 100 + Math.cos(angle) * 88;
-            const y2 = 100 + Math.sin(angle) * 88;
-            return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} />;
-          })}
+          {Array.from({ length: DOT_COUNT }, (_, i) => (
+            <line
+              key={i}
+              x1="100"
+              y1="40"
+              x2="100"
+              y2="12"
+              transform={`rotate(${i * (360 / DOT_COUNT)} 100 100)`}
+            />
+          ))}
         </g>
 
         {/* Outer Golden Pearl Beads */}
         <g fill="#ffd269">
-          {Array.from({ length: DOT_COUNT }, (_, i) => {
-            const angle = (i * 2 * Math.PI) / DOT_COUNT;
-            return (
-              <circle
-                key={i}
-                cx={100 + Math.cos(angle) * 90}
-                cy={100 + Math.sin(angle) * 90}
-                r="3"
-                className="drop-shadow-[0_0_4px_rgba(255,230,100,0.8)]"
-              />
-            );
-          })}
+          {Array.from({ length: DOT_COUNT }, (_, i) => (
+            <circle
+              key={i}
+              cx="100"
+              cy="10"
+              r="3"
+              transform={`rotate(${i * (360 / DOT_COUNT)} 100 100)`}
+              className="drop-shadow-[0_0_4px_rgba(255,230,100,0.8)]"
+            />
+          ))}
         </g>
 
         {/* Concentric Golden Mandalas */}
@@ -176,7 +176,7 @@ export function Rangoli({ size = 380 }: RangoliProps) {
   );
 }
 
-const PARTICLES = Array.from({ length: 42 }, (_, i) => ({
+const PARTICLES = Array.from({ length: 14 }, (_, i) => ({
   left: (i * 29) % 100,
   top: (i * 47) % 100,
   size: 2 + (i % 3) * 1.2,
@@ -190,7 +190,7 @@ export function GoldenParticles() {
       {PARTICLES.map((particle, i) => (
         <span
           key={i}
-          className="anim-particle absolute rounded-full bg-diwali-gold-300 shadow-[0_0_10px_3px_rgba(245,201,106,0.7)]"
+          className="anim-particle absolute rounded-full bg-diwali-gold-300 shadow-[0_0_6px_rgba(245,201,106,0.6)]"
           style={{
             left: `${particle.left}%`,
             top: `${particle.top}%`,

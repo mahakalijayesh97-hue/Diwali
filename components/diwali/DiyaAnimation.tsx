@@ -13,12 +13,10 @@ export function DiyaAnimation({ size = 72, delay = 0 }: DiyaAnimationProps) {
 
   return (
     <div
-      className="anim-fade-up relative flex flex-col items-center select-none"
+      className="relative flex flex-col items-center select-none"
       style={{
         width: size,
         height: size * 0.95,
-        animationDelay: `${delay}s`,
-        animationDuration: '0.9s',
       }}
     >
       {/* 1. Large Ambient Radiance Halo */}
