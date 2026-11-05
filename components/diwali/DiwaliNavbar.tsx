@@ -6,7 +6,6 @@ import { Flame, Menu, Volume2, VolumeX, X } from 'lucide-react';
 const NAV_LINKS = [
   { label: 'Home', href: '#home' },
   { label: 'Create Card', href: '#card-creator' },
-  { label: 'Wishes', href: '#wishes' },
   { label: 'Gallery', href: '#gallery' },
 ];
 
@@ -25,7 +24,7 @@ export function DiwaliNavbar({ onCelebrate, soundOn, onToggleSound }: DiwaliNavb
     const handleScroll = () => {
       setScrolled(window.scrollY > 24);
 
-      const sectionIds = ['gallery', 'wishes', 'card-creator', 'home'];
+      const sectionIds = ['gallery','card-creator', 'home'];
       const scrollPos = window.scrollY + 160;
 
       for (const id of sectionIds) {
