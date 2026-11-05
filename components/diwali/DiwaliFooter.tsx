@@ -82,7 +82,7 @@ export function DiwaliFooter({ onCelebrate }: DiwaliFooterProps) {
                 rel="noopener noreferrer"
                 className="font-semibold text-diwali-gold-300 hover:text-diwali-gold-200 underline decoration-diwali-gold-400/50 hover:decoration-diwali-gold-300 transition"
               >
-                Vanjara Jayesh
+                Jayesh Vanjara
               </a>
             </p>
           </div>
